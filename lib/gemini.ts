@@ -40,18 +40,31 @@ export async function classifyScam(
 ): Promise<ScamClassificationResult> {
   const model = getGenAI().getGenerativeModel({ model: "gemini-2.0-flash" });
 
-  const result = await model.generateContent({
-    contents: [
-      {
-        role: "user",
-        parts: [{ text: `${systemPrompt}\n\n---\n\nTEXT TO ANALYZE:\n${text}` }],
+  const abortController = new AbortController();
+  const timeoutId = setTimeout(() => abortController.abort(), 20000);
+
+  let result;
+  try {
+    result = await model.generateContent({
+      contents: [
+        {
+          role: "user",
+          parts: [{ text: `${systemPrompt}\n\n---\n\nTEXT TO ANALYZE:\n${text}` }],
+        },
+      ],
+      generationConfig: {
+        responseMimeType: "application/json",
+        temperature: 0.2,
       },
-    ],
-    generationConfig: {
-      responseMimeType: "application/json",
-      temperature: 0.2,
-    },
-  });
+    }, { signal: abortController.signal });
+  } catch (error: any) {
+    if (error.name === "AbortError") {
+      throw new Error("Classification is taking longer than expected — please try again");
+    }
+    throw error;
+  } finally {
+    clearTimeout(timeoutId);
+  }
 
   const response = result.response;
   const responseText = response.text();
@@ -85,26 +98,39 @@ export async function checkCurrency(
 ): Promise<CurrencyCheckResult> {
   const model = getGenAI().getGenerativeModel({ model: "gemini-2.0-flash" });
 
-  const result = await model.generateContent({
-    contents: [
-      {
-        role: "user",
-        parts: [
-          { text: systemPrompt },
-          {
-            inlineData: {
-              mimeType,
-              data: imageBase64,
+  const abortController = new AbortController();
+  const timeoutId = setTimeout(() => abortController.abort(), 20000);
+
+  let result;
+  try {
+    result = await model.generateContent({
+      contents: [
+        {
+          role: "user",
+          parts: [
+            { text: systemPrompt },
+            {
+              inlineData: {
+                mimeType,
+                data: imageBase64,
+              },
             },
-          },
-        ],
+          ],
+        },
+      ],
+      generationConfig: {
+        responseMimeType: "application/json",
+        temperature: 0.2,
       },
-    ],
-    generationConfig: {
-      responseMimeType: "application/json",
-      temperature: 0.2,
-    },
-  });
+    }, { signal: abortController.signal });
+  } catch (error: any) {
+    if (error.name === "AbortError") {
+      throw new Error("Classification is taking longer than expected — please try again");
+    }
+    throw error;
+  } finally {
+    clearTimeout(timeoutId);
+  }
 
   const response = result.response;
   const responseText = response.text();

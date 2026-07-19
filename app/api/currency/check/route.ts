@@ -124,10 +124,13 @@ export async function POST(request: NextRequest) {
     });
 
     return Response.json(result);
-  } catch (error) {
+  } catch (error: any) {
     console.error("Currency check failed:", error);
+    const msg = error?.message?.includes("taking longer than expected")
+      ? error.message
+      : "Currency analysis service unavailable. Please try again later.";
     return Response.json(
-      { error: "Currency analysis service unavailable. Please try again later." },
+      { error: msg },
       { status: 500 }
     );
   }

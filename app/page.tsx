@@ -2,6 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import PlatformStats from "@/components/PlatformStats";
 
+const StatusBadge = () => (
+  <span className="text-xs uppercase tracking-wide font-semibold text-white px-2 py-1 rounded" style={{ backgroundColor: "var(--status-live)" }}>Live</span>
+);
+
 export default function Home() {
   return (
     <div className="w-full flex flex-col items-center">
@@ -68,7 +72,7 @@ export default function Home() {
                 <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "var(--risk-suspicious)" }}></div>
                 <div className="w-3 h-3 rounded-full" style={{ backgroundColor: "var(--risk-scam)" }}></div>
               </div>
-              <span className="text-xs uppercase tracking-wide font-semibold text-white bg-green-500/20 px-2 py-1 rounded">Live</span>
+              <StatusBadge />
             </div>
             <h3 className="text-xl font-bold text-white mb-3">Scam Detector</h3>
             <p className="text-base text-muted leading-relaxed mb-6 flex-1">
@@ -84,7 +88,7 @@ export default function Home() {
                 <div className="h-1.5 rounded-full bg-white/60 w-3/4"></div>
                 <div className="h-1.5 rounded-full bg-white/80 w-5/6"></div>
               </div>
-              <span className="text-xs uppercase tracking-wide font-semibold text-white bg-green-500/20 px-2 py-1 rounded">Live</span>
+              <StatusBadge />
             </div>
             <h3 className="text-xl font-bold text-white mb-3">Counterfeit Detector</h3>
             <p className="text-base text-muted leading-relaxed mb-6 flex-1">
@@ -104,7 +108,7 @@ export default function Home() {
                    <line x1="6" y1="6" x2="34" y2="18" stroke="currentColor" strokeWidth="1.5" />
                 </svg>
               </div>
-              <span className="text-xs uppercase tracking-wide font-semibold text-white bg-green-500/20 px-2 py-1 rounded">Live</span>
+              <StatusBadge />
             </div>
             <h3 className="text-xl font-bold text-white mb-3">Fraud Network Graph</h3>
             <p className="text-base text-muted leading-relaxed mb-6 flex-1">

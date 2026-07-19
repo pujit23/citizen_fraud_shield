@@ -58,8 +58,8 @@ export async function POST(request: NextRequest) {
         addEdgeByNodes(r, n, m);
       });
     } else if (mode === "search") {
-      if (!value) {
-        return Response.json({ nodes: [], edges: [] }, { status: 200 });
+      if (!value || typeof value !== "string" || value.trim() === "") {
+        return Response.json({ error: "Search value cannot be empty" }, { status: 400 });
       }
 
       if (type === "phone") {
