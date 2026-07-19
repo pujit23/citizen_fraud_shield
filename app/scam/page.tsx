@@ -16,9 +16,9 @@ export default function ScamPage() {
         <div
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4"
           style={{
-            background: "rgba(59, 130, 246, 0.1)",
-            border: "1px solid rgba(59, 130, 246, 0.2)",
-            color: "var(--primary-400)",
+            background: "rgba(255, 255, 255, 0.03)",
+            border: "1px solid var(--border-hairline)",
+            color: "var(--text-muted)",
           }}
         >
           <svg

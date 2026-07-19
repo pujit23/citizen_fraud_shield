@@ -24,14 +24,14 @@
   --risk-scam: #ef4444;
 
   /* Dark theme base */
-  --background: #030712;
-  --background-secondary: #0f172a;
-  --background-card: #1e293b;
-  --background-card-hover: #334155;
-  --foreground: #f1f5f9;
-  --foreground-muted: #94a3b8;
-  --border: #334155;
-  --border-light: #475569;
+  --background: var(--bg);
+  --background-secondary: var(--bg-elevated);
+  --background-card: var(--bg-elevated);
+  --background-card-hover: var(--bg-elevated-hover);
+  --foreground: var(--text-primary);
+  --foreground-muted: var(--text-muted);
+  --border: var(--border-hairline-strong);
+  --border-light: var(--border-hairline);
 
   /* New Marketing Brand Values */
   --bg: #08080b;
@@ -71,16 +71,16 @@ body {
 
 /* Utility classes */
 .glass-card {
-  background: rgba(30, 41, 59, 0.6);
+  background: var(--bg-elevated);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(51, 65, 85, 0.5);
-  border-radius: 16px;
+  border: 1px solid var(--border-hairline);
+  border-radius: 24px;
 }
 
 .glass-card:hover {
-  background: rgba(30, 41, 59, 0.8);
-  border-color: rgba(59, 130, 246, 0.3);
+  background: var(--bg-elevated-hover);
+  border-color: var(--border-hairline-strong);
 }
 
 .btn-pill-primary {
@@ -134,7 +134,7 @@ body {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--primary-400), var(--accent-400));
+  background: linear-gradient(135deg, var(--grad-red) 0%, var(--grad-pink) 35%, var(--grad-purple) 65%, var(--grad-indigo) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -15,9 +15,9 @@ export default function GraphPage() {
         <div
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-4"
           style={{
-            background: "rgba(168, 85, 247, 0.1)",
-            border: "1px solid rgba(168, 85, 247, 0.2)",
-            color: "#c084fc",
+            background: "rgba(255, 255, 255, 0.03)",
+            border: "1px solid var(--border-hairline)",
+            color: "var(--text-muted)",
           }}
         >
           <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
