@@ -12,14 +12,6 @@ export default function Nav() {
 
   return (
     <header className="w-full flex flex-col z-50">
-      {/* Top Announcement Bar */}
-      <div
-        className="w-full py-2 text-center text-sm font-medium text-white px-4"
-        style={{ backgroundColor: "var(--announcement-bg)" }}
-      >
-        ET AI Hackathon 2026 · Problem Statement #6 — AI for Digital Public Safety
-      </div>
-
       {/* Main Navigation */}
       <nav className="w-full border-b backdrop-blur-md" style={{ borderColor: "var(--border-hairline)", backgroundColor: "rgba(8, 8, 11, 0.8)" }}>
         <div className="max-w-[1200px] mx-auto px-6 h-16 flex items-center justify-between">
