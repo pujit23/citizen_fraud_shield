@@ -37,7 +37,7 @@ export default function Footer() {
               Project
             </h3>
             <a
-              href="https://github.com/kanishkaaNS/Citizen-Fraud-Shield"
+              href="https://github.com/pujit23/citizen_fraud_shield"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium transition-colors hover:text-white" style={{ color: "var(--text-muted)" }}

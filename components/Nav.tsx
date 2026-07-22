@@ -32,7 +32,7 @@ export default function Nav() {
               Fraud Graph
             </Link>
             <a
-              href="https://github.com/kanishkaaNS/Citizen-Fraud-Shield"
+              href="https://github.com/pujit23/citizen_fraud_shield"
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm font-medium text-muted hover:text-white transition-colors"
@@ -77,7 +77,7 @@ export default function Nav() {
                 Fraud Graph
               </Link>
               <a
-                href="https://github.com/kanishkaaNS/Citizen-Fraud-Shield"
+                href="https://github.com/pujit23/citizen_fraud_shield"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-muted hover:text-white transition-colors"

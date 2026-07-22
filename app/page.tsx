@@ -338,7 +338,7 @@ export default function Home() {
           <Link href="/scam" className="btn-pill-primary">
             Try Scam Detector
           </Link>
-          <a href="https://github.com/kanishkaaNS/Citizen-Fraud-Shield" target="_blank" rel="noopener noreferrer" className="btn-pill-secondary">
+          <a href="https://github.com/pujit23/citizen_fraud_shield" target="_blank" rel="noopener noreferrer" className="btn-pill-secondary">
             View source on GitHub
           </a>
         </div>
